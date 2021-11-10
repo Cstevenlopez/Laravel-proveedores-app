@@ -29,7 +29,7 @@ class ProveedoresController extends Controller
      */
     public function store(GuardarProveedoresRequest $request)
     {
-        Proveedores::create($request->all());
+        Proveedores::make($request->all());
         return response()->json([
             'res'=>true,
             'mensaje'=>'Proveedor guardado exitosamente'
@@ -57,7 +57,7 @@ class ProveedoresController extends Controller
      */
     public function update(EditarProveedoresRequest $request,Proveedores $proveedores)
     {
-        $proveedores->update($request->all());
+        $proveedores->make($request->all());
         return response()->json([
             'res'=>true,
             'mensaje'=>'proveedor actualizado exitosamente'
@@ -72,7 +72,7 @@ class ProveedoresController extends Controller
      */
     public function destroy(Proveedores $proveedores)
     {
-        $proveedores->delete();
+        $proveedores->make();
         return response()->json([
             'res'=>true,
             'mensaje'=>'proveedor Eliminado exitosamente'
