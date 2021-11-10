@@ -1,65 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Pruebas unitarias y de características en Laravel
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## El siguiente repositorio y documentación consta de la realización de pruebas unitarias y de características en laravel donde se mostrará todo el proceso para realizar dichas pruebas unitarias 
 
-## About Laravel
+### Para iniciar crearemos un nuevo proyecto en laravel con el siguiente comando 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<img src="img\captura1.PNG" alt="cap1"/>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Luego de haber creado nuestro proyecto lo primero que aremos será ir a nuestro fichero .ev y agregar nuestras credenciales de la base de datos con que queremos realizar las pruebas y almacenamiento, en mi caso creare una base de datos llamada prueba
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<img src="img\captura2.PNG" alt="cap2"/>
 
-## Learning Laravel
+### Ahora crearemos la migración de nuestra tabla para ello nos vamos (Si ejecutamos el comando php artisan make:model Proveedores) se nos creara una migración en la siguiente ruta database-migrations donde tendremos una llamada en mi caso Proveedores en la cual crearemos la tabla
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<img src="img\captura3.PNG" alt="cap3"/>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Ahora nos dirigimos a hacer nuestros controladores los cuales son los encargados de realizar todos los métodos necesarios para nuestro crud crearemos una carpeta llama API dentro de Http-controllers y si también queremos crear un controlador para la parde de interfaz lo podremos crear en la carpeta controllers
 
-## Laravel Sponsors
+<img src="img\captura4.PNG" alt="cap4"/>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Metodos que contiene el controlador de la api de Provedores 
 
-### Premium Partners
+### Metodo index para poder vizualizar datos que contiene la tabla de nuestra api
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<img src="img\captura5.PNG" alt="cap5"/>
 
-## Contributing
+### metodo store para poder almacenar datos en nuestra api 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<img src="img\captura6.PNG" alt="cap6"/>
 
-## Code of Conduct
+### metodo show para poder vizualizar datos en especifico de campos de nuestra api en este caso utilizando el id del proveedor
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<img src="img\captura7.PNG" alt="cap7"/>
 
-## Security Vulnerabilities
+### metodo update parta poder editar o modificar datos de nuestra api 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<img src="img\captura8.PNG" alt="cap8"/>
 
-## License
+### metodo delete para poder eliminar un datos en nuestra tabla api
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<img src="img\captura9.PNG" alt="cap9"/>
+
+### luego de haber creado todos los metodos necesarios parta nuestro crud crearemos los request que se muestran en dichos metodos esto para validar y declarar datos para no tener ningun tipo de error a la hoar de aplicar los metodos para ello nos vamos a Http-Request y crearemos los siguientes 
+
+<img src="img\captura10.PNG" alt="cap10"/>
+
+### request de guardar proveedor 
+
+<img src="img\captura11.PNG" alt="cap11"/>
+
+### request de editar proveedor 
+
+<img src="img\captura12.PNG" alt="cap12"/>
+
+### luego de eso declararemos los datos en el modelo de nuestra tabla en este caso nos vamos a Http-Models y seleccionamos nuiestro modelo Proveedores
+
+<img src="img\captura13.PNG" alt="cap13"/>
+
+### por ultimo crearemos las rutas para los metodos de nuestra api en routes-api.php
+
+<img src="img\captura14.PNG" alt="cap14"/>
+
+### Listo con eso ya tendremos nuestro crud de la api y tabla proveedores podemos realizar pruebas en el programa postman para realizar las pruebas de los metodos 
+
+<img src="img\captura15.PNG" alt="cap15"/>
+
+## Pruebas unitarias en laravel
+
+### Para poder realizar las pruebas unitarias de nuestros metodos nos vamos a test luego a la carpeta Feature donde podemos declarar nuestros test en el fichero ExampleTest.php
+
+<img src="img\captura16.PNG" alt="cap16"/>
+
+### test para el metodo delete 
+
+<img src="img\captura17.PNG" alt="cap17"/>
+
+### test para el metodo update 
+
+<img src="img\captura18}.PNG" alt="cap18"/>
+
+### test para el metodo store 
+
+<img src="img\captura19.PNG" alt="cap19"/>
+
+### test para el metodo index
+
+<img src="img\captura20.PNG" alt="cap20"/>
+
+### podemos realizar los test con el comando php artisan test
+
+<img src="img\captura21.PNG" alt="cap21"/>
+
+### como podemos ver a continuacion al realizar los test de nuestros metodos estos afectan nuestra base de datos 
+
+<img src="img\captura22.PNG" alt="cap22"/>
+
+## Para evitar esto existe una característica que permite realizar pruebas en base de datos sin afectarla 
+
+### Nos vamos a nuestro controlador y como podemos ver acontinuación
+
+<img src="img\captura23.PNG" alt="cap23"/>
+
+### Lo que pasa es que el método create, además de crear una instancia del modelo, inserta los datos a la base de datos, lo que buscamos es el método make, el cuál sólo crea modelos pero no los guarda en base datos.
+
+<img src="img\captura24.PNG" alt="cap24"/>
+
+### podemos volver a ejecutar los test 
+
+<img src="img\captura25}.PNG" alt="cap25"/>
+
+### Como podemos ver con esta caracteristica no afectara nuesta base de datos 
+
+<img src="img\captura26.PNG" alt="cap26"/>
+
+
