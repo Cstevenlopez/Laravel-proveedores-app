@@ -4,9 +4,15 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+
 
 class ExampleTest extends TestCase
 {
+    use WithoutMiddleware;
+    use DatabaseTransactions;
     /**
      * A basic test example.
      *
@@ -20,7 +26,7 @@ class ExampleTest extends TestCase
     }
    public function test_delete()
     {
-        $response = $this->delete('/api/proveedores/44');
+        $response = $this->delete('/api/proveedores/52');
 
         $response
             ->assertStatus(200)
@@ -30,7 +36,7 @@ class ExampleTest extends TestCase
     }
     public function test_update()
     {
-        $response = $this->put('/api/proveedores/43', ['nombres' => 'mario','apellidos' => 'Reyes','direccion' => 'libertad','ciudad' => 'Rosita','numero_cedula' => '165136Q','numero_telefono' => '56138318','terminos_pagos' => 'robo']);
+        $response = $this->put('/api/proveedores/43', ['nombres' => 'paco','apellidos' => 'Reyes','direccion' => 'libertad','ciudad' => 'Rosita','numero_cedula' => '165136Q','numero_telefono' => '56138318','terminos_pagos' => 'robo']);
 
         $response
             ->assertStatus(200)
@@ -40,7 +46,7 @@ class ExampleTest extends TestCase
     }
     public function test_store()
     {
-        $response = $this->post('/api/proveedores', ['nombres' => 'tony','apellidos' => 'pito','direccion' => 'mierda','ciudad' => 'Rosita','numero_cedula' => '165136Q','numero_telefono' => '56138318','terminos_pagos' => 'robo']);
+        $response = $this->post('/api/proveedores', ['nombres' => 'anier','apellidos' => 'Antonio','direccion' => 'mierda','ciudad' => 'Rosita','numero_cedula' => '165136Q','numero_telefono' => '56138318','terminos_pagos' => 'robo']);
 
         $response
             ->assertStatus(200)
